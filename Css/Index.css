@@ -1,0 +1,757 @@
+:root {
+    
+    --color-bg-dark: hsl(0, 0%, 15%);
+    --color-bg-medium: hsl(0, 0%, 25%);
+    --color-bg-light: white;
+    --color-accent: hsl(0, 0%, 20%);
+    --color-box-shadow: rgba(0, 0, 0, 0.4);
+    --color-overlay: hsl(0, 0%, 25%);
+    --color-text-light: white;
+    --color-text-dark: hsl(0, 0%, 15%);
+    --color-accent-light: hsl(25, 0%, 35%);
+    --color-hover-bg: hsl(0, 0%, 20%);
+    --color-footer-bg: hsl(0, 0%, 15%);
+    --color-footer-text: white;
+}
+
+/*                                     BODY                               */
+
+body {
+    margin: 0;
+    background-color: var(--color-bg-medium);
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    padding-top: 0;
+}
+
+/*                                     HEADER                                */
+
+@font-face {
+    font-family: 'Super';
+    src: url('../Css/font/Super\ Basic.ttf') format('truetype'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+header {
+    grid-area: header;
+    background-color: var(--color-bg-dark);
+    text-align: center;
+    color: var(--color-text-light);
+    padding: 5px;
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    z-index: 1000;
+}
+
+header h1{ 
+  font-family: 'Super';
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+header > nav > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 5px 0; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+header > nav > ul > li {
+    width: 20%;  
+    margin: 20px;
+}
+
+header li > a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-size: 25px; 
+    display: block;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+header li > a:hover {
+    background-color: var(--color-bg-light);
+    color: var(--color-accent);
+}
+
+/*                                     MAIN                               */
+
+main {
+    grid-area: main;
+    margin: 10px 0;
+    background-color: var(--color-bg-medium);
+    text-align: center;
+    color: var(--color-text-light);
+    padding: 5px;
+    padding-top: 200px;  /* Espace pour compenser le header fixé */
+}
+
+
+h2 {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    margin: 0 0;
+    border-radius: 8px;
+    padding: 15px;
+    text-decoration: underline solid var(--color-text-light);
+    text-underline-offset: 8px;
+    display: block;
+    text-align: center;
+}
+
+h2:hover {
+    box-shadow: 0 8px 16px var(--color-box-shadow);
+}
+
+.MESPROJETS:hover{
+    box-shadow: 8px 0px 16px var(--color-box-shadow);
+}
+
+/*                                     PROPOS                               */
+
+.Propos {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes : une pour le texte, une pour l'image */
+    gap: 20px; /* Espacement entre les éléments */
+    margin: 0 auto; /* Centrer le conteneur principal */
+    padding: 20px; 
+}
+
+.Propos p, 
+.Propos img {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+}
+
+.Propos p {
+    background-color: var(--color-bg-dark);
+    padding: 43px 40px; 
+    border-radius: 8px;
+    font-size: 20px; 
+    text-align:center;
+    text-indent: 1.5em;
+    color: var(--color-text-light);
+    margin: 0; 
+}
+
+.Propos img {
+    width: 100%; 
+    height: auto; 
+    max-height: 200px; 
+    border-radius: 8px;
+    object-fit: cover; 
+    margin: auto; 
+}
+
+
+.Propos p:nth-of-type(2n+1),
+.Propos img:nth-of-type(2n+1),
+.Propos p:nth-of-type(2n),
+.Propos img:nth-of-type(2n) {
+    display: flex;
+    align-items: stretch; 
+    height: auto;
+}
+
+
+.Propos p:nth-of-type(2n+1) {
+    grid-column: 1;
+}
+
+.Propos img:nth-of-type(2n+1) {
+    grid-column: 2;
+}
+
+
+.Propos p:nth-of-type(2n) {
+    grid-column: 2;
+}
+
+.Propos img:nth-of-type(2n) {
+    grid-column: 1;
+}
+
+.Propos img.Nuaje {
+    object-fit: cover;        
+    object-position: center;  
+    height: 200px;            
+    width: 100%;           
+}
+
+/*                                     PROJET                                */
+
+.Projet p {
+    background-color: var(--color-bg-dark);
+    width: 50%;
+    padding: 35px;
+    margin: 0 auto;
+    border-radius: 8px;
+    font-size: 20px;
+    text-align: justify;
+    text-indent: 2em;
+    color: var(--color-text-light);
+}
+
+.Projet {
+    width: 100%;
+    height: 700px;
+    border: 2px solid var(--color-bg-medium);
+    border-radius: 8px;
+    background-image: url(../Css/img/Projet/Vignettes/Nuages.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.Projet ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 65px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+}
+
+.Projet ul li {
+    width: 20%;  
+}
+
+.Projet li a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-size: 18px; 
+    display: block;
+    padding: 15px;
+    border: 2px solid var(--color-text-light);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.Projet li > a:hover {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+}
+
+.Projet p:hover {
+    box-shadow: 0 8px 16px var(--color-box-shadow); 
+    scale: 1.1;
+}
+
+/*                                     photoshop                                */
+
+.Photoshop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 350px; 
+    width: 100%; 
+    margin: 20px auto;
+    background-color: var(--color-accent-light);
+    border-radius: 10px;
+}
+
+.Photoshop ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; 
+    position: relative;
+    width: max-content; 
+}
+
+.Photoshop li {
+    flex: 0 0 auto;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.Photoshop a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.Photoshop figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.Photoshop img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--color-box-shadow);
+}
+
+.Photoshop figcaption {
+    margin-top: 8px;
+    font-size: 16px;
+    color: var(--color-text-light);
+}
+
+/*                                     illustrator                                */
+
+.Illustrator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 350px; 
+    width: 100%; 
+    margin: 20px auto;
+    background-color: var(--color-accent-light);
+    border-radius: 10px;
+}
+
+.Illustrator ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; 
+    position: relative;
+    width: max-content; 
+}
+
+.Illustrator li {
+    flex: 0 0 auto;
+    margin: 0 10px;
+}
+
+.Illustrator a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.Illustrator figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.Illustrator img {
+    width: 100%;                
+    height: auto;                  
+    max-width: 200px;        
+    border-radius: 8px;            
+    object-fit: cover;             
+}
+
+.Illustrator figcaption {
+    margin-top: 8px;
+    font-size: 16px;
+    color: var(--color-text-light);
+}
+
+figure,
+figure img {
+    overflow: hidden;
+    position: relative;
+}
+
+figcaption {
+    position: absolute;
+    top: 300px;
+    width: 200px;
+    background-color: var(--color-accent-light);
+    color: var(--color-text-light);
+    font-size: 1.5em;
+    opacity: 0.8;
+    padding: 5px;
+}
+
+figure:hover > figcaption {
+    top: 0;
+}
+
+figcaption {
+    transition: 2s;
+}
+
+
+
+/*                              Indesign                                 */
+
+
+
+.Indesign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 350px; 
+    width: 100%; 
+    margin: 20px auto;
+    background-color: var(--color-accent-light);
+    border-radius: 10px;
+}
+
+.Indesign ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; 
+    position: relative;
+    width: max-content; 
+}
+
+.Indesign li {
+    flex: 0 0 auto;
+    margin: 0 10px;
+}
+
+.Indesign a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.Indesign figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.Indesign img {
+    width: 100%;                
+    height: auto;                  
+    max-width: 200px;        
+    border-radius: 8px;            
+    object-fit: cover;             
+}
+
+.Indesign figcaption {
+    margin-top: 8px;
+    font-size: 16px;
+    color: var(--color-text-light);
+}
+
+main h1{
+    color: var(--color-text-light);
+    margin: 0 0;
+    display: block;
+    text-align: center;
+}
+
+
+/*                                     FOOTER                                */
+
+
+
+footer {
+    grid-area: footer;
+    background-color: var(--color-footer-bg);
+    text-align: center;
+    color: var(--color-footer-text);
+    padding: 5px;
+} 
+
+
+
+@media (max-width: 1024px) {
+    main {
+        padding: 5px;
+        padding-top: 200px;
+    }
+    
+
+
+    .Propos p {
+        font-size: 18px;
+        line-height: 1.6; 
+        padding: 20px;
+        text-align: justify;
+        text-indent: 1.5em;
+    }
+    
+    .Propos img {
+        width: 100%;
+        max-width: 400px; 
+        margin: auto; 
+        height: auto; 
+        max-height: 250px; 
+        display: block; 
+    }
+
+    .Projet {
+        height: auto;
+        padding: 20px;
+        background-size: cover;
+    }
+
+    .Projet ul {
+        flex-direction: column;
+        margin: 20px 0;
+    }
+
+    .Projet ul li {
+        width: auto;
+        margin: 10px;
+    }    
+    
+    .Indesign,
+    .Illustrator,
+    .Photoshop {
+        height: auto;
+        padding: 20px;
+        background-size: cover;
+    }
+
+    .Photoshop,.Illustrator,.Indesign {
+        flex-direction: column;
+        margin: 20px 0;
+    }
+
+    .Photoshop,.Illustrator,.Indesign ul li {
+        width: auto;
+        margin: 10px;
+    }
+
+    .Photoshop,
+    .Illustrator, 
+    .Indesign {
+        height: auto;
+    }
+
+    .Photoshop img,
+    .Illustrator img,
+    .Indesign img {
+        max-width: 150px;
+    }
+
+    figcaption {
+        font-size: 1em;
+        padding: 3px;
+    }
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+header > nav > ul {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+}
+
+header li > a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px;
+    color: #ffffff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+   
+    main {
+        padding: 5px;
+        padding-top: 150px;  /* Espace pour compenser le header fixé */
+    }
+
+    .Propos img {
+        width: 100%;
+        max-width: 300px; 
+        margin: auto;
+    }
+    h2{
+        margin-bottom: 45px;
+    }
+
+    .Propos p {
+        padding: 20px;
+        font-size: 15px;
+    }
+    .Propos p:hover {
+        scale: 1.2;
+    }
+
+    .menu-icon {
+        display: block; /* Affiche l'icône ☰ */
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        background-color: #3a3a3a;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.363);
+        border-radius: 8px;
+    }
+
+    header li > a {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    /* Affiche les liens de navigation lorsque la checkbox est cochée */
+    .menu-toggle:checked + .menu-icon + .nav-links {
+        display: flex;
+    }
+}
+
+/* Média query pour les écrans plus petits */
+@media (max-width: 480px) {
+    body{
+        padding-top: 225x ;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header > nav > ul {
+        gap: 5px;
+    }
+
+    header li > a {
+        font-size: 14px;
+        padding: 6px;
+    }
+    
+    .Propos p {
+        padding: 20px;
+        font-size: 12px;
+    }
+    
+    .Propos p:hover {
+        scale: 1.2;
+    }
+    
+    .Projet{
+        padding-top: 0px;
+    }
+    
+}
+
+/* Pour les écrans de taille moyenne (tablettes, max 768px) */
+@media (max-width: 768px) {
+    .Indesign,
+    .Illustrator,
+    .Photoshop {
+        height: auto;
+        padding: 15px;
+        background-size: cover;
+    }
+
+    .Photoshop, 
+    .Illustrator, 
+    .Indesign {
+        flex-direction: column;
+        margin: 15px 0;
+    }
+
+    .Photoshop ul, 
+    .Illustrator ul, 
+    .Indesign ul {
+        flex-direction: column;
+    }
+
+    .Photoshop ul li, 
+    .Illustrator ul li, 
+    .Indesign ul li {
+        width: auto;
+        margin: 8px;
+    }
+
+    .Photoshop img, 
+    .Illustrator img, 
+    .Indesign img {
+        max-width: 120px;
+    }
+
+    figcaption {
+        font-size: 0.9em;
+        padding: 2px;
+    }
+}
+
+/* Pour les très petits écrans (mobiles, max 480px) */
+@media (max-width: 480px) {
+    .Indesign,
+    .Illustrator,
+    .Photoshop {
+        height: auto;
+        padding: 10px;
+        background-size: cover;
+    }
+
+    .Photoshop, 
+    .Illustrator, 
+    .Indesign {
+        flex-direction: column;
+        margin: 10px 0;
+    }
+
+    .Photoshop ul, 
+    .Illustrator ul, 
+    .Indesign ul {
+        flex-direction: column;
+    }
+
+    .Photoshop ul li, 
+    .Illustrator ul li, 
+    .Indesign ul li {
+        width: auto;
+        margin: 5px;
+    }
+
+    .Photoshop img, 
+    .Illustrator img, 
+    .Indesign img {
+        max-width: 100px;
+    }
+
+    figcaption {
+        font-size: 0.8em;
+        padding: 1px;
+    }
+}
